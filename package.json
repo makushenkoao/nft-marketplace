@@ -3,11 +3,12 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "start": "next start",
         "dev": "next dev",
         "build": "next build",
-        "start": "next start",
         "lint": "next lint",
-        "format": "npx prettier --write **/*.{ts,tsx,json}"
+        "format": "npx prettier --write **/*.{ts,tsx,json}",
+        "postinstall": "node scripts/clear-cache.js"
     },
     "dependencies": {
         "@headlessui/react": "^1.7.19",
