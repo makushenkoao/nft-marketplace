@@ -1,3 +1,4 @@
+# IDE
 .idea
 
 # dependencies
@@ -34,3 +35,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# devs
+notes.txt
