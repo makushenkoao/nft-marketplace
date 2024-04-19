@@ -5,7 +5,7 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 import { ChangeEvent, useState } from 'react';
 
-import { BaseLayout } from '@/components/layout';
+import { BaseLayout } from '@/components/ui/layout';
 import { ATTRIBUTES } from '@/consts/nft';
 
 const NftCreate: NextPage = () => {

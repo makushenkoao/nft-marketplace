@@ -2,7 +2,8 @@
 
 import type { NextPage } from 'next';
 
-import { BaseLayout } from '@/components/layout';
+import { useWeb3 } from '@/components/providers/web3';
+import { BaseLayout } from '@/components/ui/layout';
 import nfts from '@/content/meta.json';
 import { classNames } from '@/helpers/classNames/classNames';
 import { NftMeta } from '@/types/nft';
@@ -11,6 +12,9 @@ const tabs = [{ name: 'Your Collection', href: '#', current: true }];
 
 const Profile: NextPage = () => {
     const mockBoolean = true;
+    const { test } = useWeb3();
+
+    console.log(test);
 
     return (
         <BaseLayout>

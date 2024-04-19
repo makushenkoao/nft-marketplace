@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-import ActiveLink from '@/components/link';
+import ActiveLink from '@/components/ui/link';
 import { classNames } from '@/helpers/classNames/classNames';
 
 const navigation = [

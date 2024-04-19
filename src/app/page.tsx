@@ -1,7 +1,7 @@
 import { NextRouter } from 'next/router';
 
-import { BaseLayout } from '@/components/layout';
-import { NftList } from '@/components/nft/list';
+import { BaseLayout } from '@/components/ui/layout';
+import { NftList } from '@/components/ui/nft/list';
 import nfts from '@/content/meta.json';
 import { NftMeta } from '@/types/nft';
 
