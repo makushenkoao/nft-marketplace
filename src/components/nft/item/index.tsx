@@ -1,4 +1,4 @@
-import { NftMeta } from '@/app/types/nft';
+import { NftMeta } from '@/types/nft';
 
 interface NftItemProps {
     nft: NftMeta;

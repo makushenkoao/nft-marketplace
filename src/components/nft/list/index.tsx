@@ -1,5 +1,6 @@
+import { NftMeta } from '@/types/nft';
+
 import { NftItem } from '../item';
-import { NftMeta } from '@/app/types/nft';
 
 interface NftListProps {
     nfts: NftMeta[];

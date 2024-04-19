@@ -1,7 +1,9 @@
+import { NextRouter } from 'next/router';
+
 import { BaseLayout } from '@/components/layout';
 import { NftList } from '@/components/nft/list';
-import { NftMeta } from '@/app/types/nft';
 import nfts from '@/content/meta.json';
+import { NftMeta } from '@/types/nft';
 
 export default function Home() {
     return (
