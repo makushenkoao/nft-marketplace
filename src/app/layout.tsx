@@ -2,7 +2,6 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ReactNode } from 'react';
 
 import { Web3Provider } from '@/components/providers/web3';
 import { LayoutProps } from '@/types/layout';

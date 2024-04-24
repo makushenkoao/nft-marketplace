@@ -5,10 +5,13 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 import { ChangeEvent, useState } from 'react';
 
+import { useWeb3 } from '@/components/providers/web3';
 import { BaseLayout } from '@/components/ui/layout';
 import { ATTRIBUTES } from '@/consts/nft';
 
 const NftCreate: NextPage = () => {
+    const data = useWeb3();
+    console.log(data);
     const [nftURI, setNftURI] = useState('');
     const [hasURI, setHasURI] = useState(false);
     const isHasImage = false;

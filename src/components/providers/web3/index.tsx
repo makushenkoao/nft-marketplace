@@ -1,8 +1,17 @@
 'use client';
 
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { ethers } from 'ethers';
+import {
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useState,
+} from 'react';
 
-const Web3Context = createContext<any>(null);
+import { createDefaultState, Web3State } from './utils';
+
+const Web3Context = createContext<Web3State>(createDefaultState());
 
 interface Web3ProviderProps {
     children: ReactNode;
@@ -11,7 +20,23 @@ interface Web3ProviderProps {
 export const Web3Provider = (props: Web3ProviderProps) => {
     const { children } = props;
 
-    const [web3Api, setWeb3Api] = useState({ test: 'web 3 provider' });
+    useEffect(() => {
+        function initWeb3() {
+            const ethereum = window.ethereum;
+            const provider = new ethers.providers.Web3Provider(ethereum as any);
+
+            setWeb3Api({
+                ethereum,
+                provider,
+                contact: null,
+                loading: false,
+            });
+        }
+
+        initWeb3();
+    }, []);
+
+    const [web3Api, setWeb3Api] = useState<Web3State>(createDefaultState());
 
     return (
         <Web3Context.Provider value={web3Api}>{children}</Web3Context.Provider>
@@ -19,5 +44,11 @@ export const Web3Provider = (props: Web3ProviderProps) => {
 };
 
 export function useWeb3() {
-    return useContext(Web3Context);
+    const context = useContext(Web3Context);
+
+    if (!context) {
+        throw new Error('useWeb3 must be used within a Web3Provider');
+    }
+
+    return context;
 }
