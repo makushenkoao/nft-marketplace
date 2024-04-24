@@ -1,5 +1,5 @@
 import { MetaMaskInpageProvider } from '@metamask/providers';
-import { Contract, Provider } from 'ethers';
+import { Contract, providers } from 'ethers';
 
 // TODO: move
 declare global {
@@ -10,7 +10,7 @@ declare global {
 
 export interface Web3Params {
     ethereum?: MetaMaskInpageProvider | null;
-    provider?: Provider | null;
+    provider?: providers.Web3Provider | null;
     contact?: Contract | null;
 }
 
