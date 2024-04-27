@@ -12,9 +12,6 @@ const tabs = [{ name: 'Your Collection', href: '#', current: true }];
 
 const Profile: NextPage = () => {
     const mockBoolean = true;
-    const { ethereum } = useWeb3();
-
-    console.log('data ==>, ', ethereum);
 
     return (
         <BaseLayout>

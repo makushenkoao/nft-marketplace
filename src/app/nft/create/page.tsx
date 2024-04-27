@@ -10,8 +10,6 @@ import { BaseLayout } from '@/components/ui/layout';
 import { ATTRIBUTES } from '@/consts/nft';
 
 const NftCreate: NextPage = () => {
-    const data = useWeb3();
-    console.log(data);
     const [nftURI, setNftURI] = useState('');
     const [hasURI, setHasURI] = useState(false);
     const isHasImage = false;

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
+import { useAccount } from '@/components/hooks/web3/useAccount';
 import ActiveLink from '@/components/ui/link';
 import { classNames } from '@/helpers/classNames/classNames';
 
@@ -15,6 +16,10 @@ const navigation = [
 ];
 
 export const Navbar = () => {
+    const { data } = useAccount('Some Random Params');
+
+    console.log(data);
+
     return (
         <Disclosure
             as="nav"
