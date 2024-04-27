@@ -2,7 +2,6 @@
 
 import type { NextPage } from 'next';
 
-import { useWeb3 } from '@/components/providers/web3';
 import { BaseLayout } from '@/components/ui/layout';
 import nfts from '@/content/meta.json';
 import { classNames } from '@/helpers/classNames/classNames';

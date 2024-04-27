@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 
-import { CryptoHookFactory, Web3Dependencies } from '@/types/hooks';
+import { CryptoHookFactory } from '@/types/hooks';
 
 type AccountHookFactory = CryptoHookFactory<string, string>;
 

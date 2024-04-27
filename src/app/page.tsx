@@ -1,6 +1,5 @@
 'use client';
 
-import { useWeb3 } from '@/components/providers/web3';
 import { BaseLayout } from '@/components/ui/layout';
 import { NftList } from '@/components/ui/nft/list';
 import nfts from '@/content/meta.json';
