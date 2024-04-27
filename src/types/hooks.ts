@@ -4,7 +4,7 @@ import { SWRResponse } from 'swr';
 
 export interface Web3Dependencies {
     provider: providers.Web3Provider;
-    contact: Contract;
+    contract: Contract;
     ethereum: MetaMaskInpageProvider;
 }
 

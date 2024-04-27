@@ -9,6 +9,8 @@ import {
     useState,
 } from 'react';
 
+import { setupHooks } from '@/components/hooks/web3/setupHooks';
+
 import { createDefaultState, loadContact, Web3State } from './utils';
 
 const Web3Context = createContext<Web3State>(createDefaultState());
@@ -31,6 +33,11 @@ export const Web3Provider = (props: Web3ProviderProps) => {
                 provider,
                 contract,
                 loading: false,
+                hooks: setupHooks({
+                    ethereum,
+                    provider,
+                    contract,
+                }),
             });
         }
 

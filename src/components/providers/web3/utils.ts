@@ -1,7 +1,8 @@
 import { MetaMaskInpageProvider } from '@metamask/providers';
 import { Contract, ethers, providers } from 'ethers';
 
-// TODO: move
+import { setupHooks, Web3Hooks } from '@/components/hooks/web3/setupHooks';
+
 declare global {
     interface Window {
         ethereum: MetaMaskInpageProvider;
@@ -16,6 +17,7 @@ export interface Web3Params {
 
 export type Web3State = {
     loading: boolean;
+    hooks: Web3Hooks;
 } & Web3Params;
 
 export const createDefaultState = () => {
@@ -24,6 +26,7 @@ export const createDefaultState = () => {
         provider: null,
         contract: null,
         loading: true,
+        hooks: setupHooks({} as any),
     };
 };
 

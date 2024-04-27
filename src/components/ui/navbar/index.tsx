@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-import { useAccount } from '@/components/hooks/web3/useAccount';
+import { useWeb3 } from '@/components/providers/web3';
 import ActiveLink from '@/components/ui/link';
 import { classNames } from '@/helpers/classNames/classNames';
 
@@ -16,7 +16,8 @@ const navigation = [
 ];
 
 export const Navbar = () => {
-    const { data } = useAccount('Some Random Params');
+    const { hooks } = useWeb3();
+    const { data } = hooks.useAccount('Random string param');
 
     console.log(data);
 
