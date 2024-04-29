@@ -2,7 +2,6 @@
 
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
@@ -51,13 +50,11 @@ export const Navbar = () => {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <Image
-                                        className="hidden lg:block"
-                                        src="/images/page_logo.png"
-                                        alt="WEB3"
-                                        width={100}
-                                        height={44}
-                                    />
+                                    <Link href="/">
+                                        <h1 className="text-orange-600 bold text-xl">
+                                            | NFT Nexus |
+                                        </h1>
+                                    </Link>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">

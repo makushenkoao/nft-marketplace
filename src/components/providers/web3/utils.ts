@@ -2,6 +2,7 @@ import { MetaMaskInpageProvider } from '@metamask/providers';
 import { Contract, ethers, providers } from 'ethers';
 
 import { setupHooks, Web3Hooks } from '@/components/hooks/web3/setupHooks';
+import { Web3Dependencies } from '@/types/hooks';
 
 declare global {
     interface Window {
@@ -9,16 +10,14 @@ declare global {
     }
 }
 
-export interface Web3Params {
-    ethereum?: MetaMaskInpageProvider | null;
-    provider?: providers.Web3Provider | null;
-    contract?: Contract | null;
-}
+export type Nullable<T> = {
+    [P in keyof T]: T[P] | null;
+};
 
 export type Web3State = {
     loading: boolean;
     hooks: Web3Hooks;
-} & Web3Params;
+} & Nullable<Web3Dependencies>;
 
 export const createDefaultState = () => {
     return {
@@ -27,6 +26,22 @@ export const createDefaultState = () => {
         contract: null,
         loading: true,
         hooks: setupHooks({} as any),
+    };
+};
+
+export const createWeb3State = (
+    args: Web3Dependencies & { loading: boolean },
+) => {
+    const { loading, provider, contract, ethereum } = args;
+
+    const hooks = setupHooks({ ethereum, provider, contract });
+
+    return {
+        ethereum,
+        provider,
+        contract,
+        loading,
+        hooks,
     };
 };
 
