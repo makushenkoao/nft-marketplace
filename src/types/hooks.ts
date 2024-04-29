@@ -9,5 +9,5 @@ export interface Web3Dependencies {
 }
 
 export interface CryptoHookFactory<D = unknown, P = unknown> {
-    (deps: Partial<Web3Dependencies>): (params: P) => SWRResponse<D>;
+    (deps: Partial<Web3Dependencies>): (params?: P) => SWRResponse<D>;
 }

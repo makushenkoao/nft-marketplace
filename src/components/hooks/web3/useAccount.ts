@@ -2,16 +2,28 @@ import useSWR from 'swr';
 
 import { CryptoHookFactory } from '@/types/hooks';
 
-type AccountHookFactory = CryptoHookFactory<string, string>;
+type AccountHookFactory = CryptoHookFactory<string>;
 
 export type UseAccountHook = ReturnType<AccountHookFactory>;
 
-// deps -> provider, contract (web3state)
 export const hookFactory: AccountHookFactory = (deps) => (params) => {
-    return useSWR('web3/useAccount', () => {
-        console.log(deps);
-        console.log(params);
-        // TOdo: making request to get data
-        return 'Test user';
-    });
+    const { provider } = deps;
+
+    return useSWR(
+        provider ? 'web3/useAccount' : null,
+        async () => {
+            const accounts = await provider!.listAccounts();
+
+            const account = accounts[0];
+
+            if (!account) {
+                throw 'Cannot retrieve account! Please, connect to web3 wallet.';
+            }
+
+            return account;
+        },
+        {
+            revalidateOnFocus: false,
+        },
+    );
 };

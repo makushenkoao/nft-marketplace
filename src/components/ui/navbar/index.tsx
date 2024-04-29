@@ -17,7 +17,8 @@ const navigation = [
 export const Navbar = () => {
     const { account } = useAccount();
 
-    console.log(account);
+    console.log('account:', account.data);
+    console.log('error:', account.error);
 
     return (
         <Disclosure
