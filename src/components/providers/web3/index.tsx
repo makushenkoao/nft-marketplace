@@ -52,11 +52,9 @@ export const Web3Provider = (props: Web3ProviderProps) => {
 };
 
 export function useWeb3() {
-    const context = useContext(Web3Context);
+    return useContext(Web3Context);
+}
 
-    if (!context) {
-        throw new Error('useWeb3 must be used within a Web3Provider');
-    }
-
-    return context;
+export function useHooks() {
+    return useWeb3().hooks;
 }

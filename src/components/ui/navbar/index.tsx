@@ -5,7 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-import { useWeb3 } from '@/components/providers/web3';
+import { useAccount } from '@/components/hooks/web3';
 import ActiveLink from '@/components/ui/link';
 import { classNames } from '@/helpers/classNames/classNames';
 
@@ -15,10 +15,9 @@ const navigation = [
 ];
 
 export const Navbar = () => {
-    const { hooks } = useWeb3();
-    const { data } = hooks.useAccount('Random string param');
+    const { account } = useAccount();
 
-    console.log(data);
+    console.log(account);
 
     return (
         <Disclosure
